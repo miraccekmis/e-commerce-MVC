@@ -1,0 +1,21 @@
+﻿@model CoreAndProducts.Data.Models.Category
+
+@{
+    ViewData["Title"] = "CategoryAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>KATEGORİ EKLE</h1>
+<br />
+@using (Html.BeginForm("CategoryAdd", "Category", FormMethod.Post))
+{
+    @Html.Label("KATEGORİ ADI")
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.CategoryName,"",new {@style="color:red"})
+    <br />
+    @Html.Label("KATEGORİ AÇIKLAMA")
+    @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">KAYDET</button>
+}
+

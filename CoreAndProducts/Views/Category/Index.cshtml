@@ -1,0 +1,37 @@
+﻿@model List<CoreAndProducts.Data.Models.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>KATEGORİ LİSTESİ</h1>
+<br />
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>CATEGORY İSMİ</th>
+        <th>DURUMLAR</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.CategoryID</th>
+            <td>@x.CategoryName</td>
+            <td>@x.Status</td>
+            <td><a href="/Category/CategoryDelete/@x.CategoryID" class="btn btn-danger">SİL</a> </td>
+            <td><a href="/Category/CategoryGet/@x.CategoryID" class="btn btn-success">GÜNCELLE</a> </td>
+        </tr>
+    }
+
+</table>
+<a href="/Category/CategoryAdd/" class="btn btn-primary">YENİ KATEGORİ</a>
+

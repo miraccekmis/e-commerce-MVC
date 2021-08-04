@@ -1,0 +1,36 @@
+﻿@model CoreAndProducts.Data.Models.Product
+@{
+    ViewData["Title"] = "ProductGet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ÜRÜN EKLE</h1>
+<br />
+@using (Html.BeginForm("ProductUpdate", "Product", FormMethod.Post))
+{
+    @Html.Label("ÜRÜN ID")
+    @Html.TextBoxFor(x => x.ProductID, new { @class = "form-control" })
+    <br />
+    @Html.Label("ÜRÜN ADI")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.Label("FİYAT")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.Label("STOK SAYISI")
+    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+    <br />
+    @Html.Label("RESİM")
+    @Html.TextBoxFor(x => x.ImageURL, new { @class = "form-control" })
+    <br />
+    @Html.Label("KATEGORİ")
+    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+    <br />
+    @Html.Label("AÇIKLAMA")
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">KAYDET</button>
+}
+
+
